@@ -40,7 +40,9 @@ while (True):
 cv2.destroyAllWindows()
 
 print(positions)
+# ex. [[330, 323], [334, 379], [742, 323], [727, 382]]
 print(positions2)
+# ex. [[330, 323], [334, 379], [727, 382], [742, 323]]
 
 # Getting the coordinates of corners from the first image
 height, width = car.shape[:2]

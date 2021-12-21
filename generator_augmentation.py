@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import argparse
 
+
 def image_augmentation(img, ang_range=6, shear_range=3, trans_range=3):
     # Rotation
     ang_rot = np.random.uniform(ang_range) - ang_range / 2
