@@ -34,10 +34,10 @@ Type 7 : X50fk9747
 
 |       File         |Description                                       |
 |--------------------|--------------------------------------------------|
-|Generator_original.py           |  generate images without any image distortion/augmentation.     |
-|Generator_augmentation.py       |  generate images with image augmentations such as random brightness.   |
-|Generator_perspective.py |   generate images with perspective transform.     |
-|Generator_noise.py |   generate images with noise such as rainfall, sunlight, shadows.     |
+|generator_original.py           |  generate images without any image distortion/augmentation.     |
+|generator_augmentation.py       |  generate images with image augmentations such as random brightness.   |
+|generator_perspective.py |   generate images with perspective transform.     |
+|generator_noise.py |   generate images with noise such as rainfall, sunlight, shadows.     |
 
 
 # Car-with-license-plate-Generator
@@ -49,3 +49,12 @@ Type 7 : X50fk9747
 - I recommend pre-training with synthetic images and fine-tune with real data.
 
 - You need your own car images for this part.
+
+
+## File Description
+
+
+|       File         |Description                                       |
+|--------------------|--------------------------------------------------|
+|buildcar_click.py           |  click on the 4 corners of the license plate location to generate cars with new license plates.     |
+|buildcar_nonclick.py       |  no need to click (need the location info beforehand).   |
