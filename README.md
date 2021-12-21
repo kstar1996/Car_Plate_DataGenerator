@@ -58,3 +58,14 @@ Type 7 : X50fk9747
 |--------------------|--------------------------------------------------|
 |buildcar_click.py           |  click on the 4 corners of the license plate location to generate cars with new license plates.     |
 |buildcar_nonclick.py       |  no need to click (need the location info beforehand).   |
+
+
+# License-plate-alignment
+
+- Align license plates using projective transform
+
+## File Description
+
+|       File         |Description                                       |
+|--------------------|--------------------------------------------------|
+|projective_transform.py           |  align license plates (need to know the 4 corner coordinates).     |
