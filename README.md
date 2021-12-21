@@ -1,9 +1,6 @@
-# Korean-license-plate-Generator
+# License-plate-Generator
 
-- electric vehicle license plate
-- 8 digit license plate
-
-Generate Synthetic Korea License Plate.
+Generate Synthetic Korea License Plates.
 
 - You can use this generator when there is insufficient data on the license plate.
 
@@ -42,12 +39,12 @@ Type 7 : X50fk9747
 |Generator_perspective.py |   generate images with perspective transform.     |
 
 
-# Korean-car-with-license-plate-Generator
+# Car-with-license-plate-Generator
 
-- Use generated license plates to create new car images
+- Use generated license plates to create new car images.
 
-- You can use this generator when there is insufficient data
+- You can use this generator when there is insufficient data.
 
 - I recommend pre-training with synthetic images and fine-tune with real data.
 
-- You need your own car images for this part
+- You need your own car images for this part.
