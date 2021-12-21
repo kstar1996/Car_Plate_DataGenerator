@@ -7,6 +7,25 @@ import numpy as np
 import os
 
 
+def change_light(image, coeff):
+    # Conversion to HLS
+    image_HLS = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    image_HLS[:, :, 2] = image_HLS[:, :, 2] * coeff
+    # Conversion to RGB
+    image_RGB = cv2.cvtColor(image_HLS, cv2.COLOR_HSV2BGR)
+    return image_RGB
+
+
+def darken(image, darkness_coeff=-1):
+    if darkness_coeff == -1:
+        darkness_coeff_t = 1 - random.uniform(0, 0.8)
+    else:
+        darkness_coeff_t = 1 - darkness_coeff
+    # Change the light in the image according to the darkness coeff
+    image_RGB = change_light(image, darkness_coeff_t)
+    return image_RGB
+
+
 def flare_source(image, point, radius, src_color):
     overlay = image.copy()
     output = image.copy()
@@ -223,7 +242,7 @@ def buildCar_type1(license_img, num):
     # Using Bitwise or to merge the two images
     final = cv2.bitwise_or(im1Reg, masked_image)
     # final = sun_flare(final, flare_center=-1, no_of_flare_circles=8, src_radius=400, src_color=(255, 255, 255))
-    final = add_shadow(final)
+    final = darken(final)
     cv2.imwrite('./img/test_car/addplate' + str(num) + '.png', final)
 
 
@@ -269,7 +288,7 @@ def buildCar_type2(license_img, num):
     # Using Bitwise or to merge the two images
     final = cv2.bitwise_or(im1Reg, masked_image)
     # final = sun_flare(final, flare_center=-1, no_of_flare_circles=8, src_radius=400, src_color=(255, 255, 255))
-    final = add_shadow(final)
+    final = darken(final)
     cv2.imwrite('./img/test_car/addplate' + str(num) + '.png', final)
 
 
