@@ -28,9 +28,6 @@ Type 7 : X50fk9747
 
 ## File Description
 
-- os : Ubuntu 16.04.4 LTS or Windows 10
-- Python : 3.8
-
 
 |       File         |Description                                       |
 |--------------------|--------------------------------------------------|
