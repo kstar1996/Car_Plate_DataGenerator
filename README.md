@@ -37,6 +37,7 @@ Type 7 : X50fk9747
 |Generator_original.py           |  generate images without any image distortion/augmentation.     |
 |Generator_augmentation.py       |  generate images with image augmentations such as random brightness.   |
 |Generator_perspective.py |   generate images with perspective transform.     |
+|Generator_noise.py |   generate images with noise such as rainfall, sunlight, shadows.     |
 
 
 # Car-with-license-plate-Generator
