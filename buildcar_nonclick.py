@@ -7,22 +7,23 @@ import numpy as np
 import os
 
 
-def change_light(image, coeff):
+def change_light(image, coef):
     # Conversion to HLS
     image_HLS = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    image_HLS[:, :, 2] = image_HLS[:, :, 2] * coeff
+    image_HLS[:, :, 2] = image_HLS[:, :, 2] * coef
     # Conversion to RGB
     image_RGB = cv2.cvtColor(image_HLS, cv2.COLOR_HSV2BGR)
     return image_RGB
 
 
-def darken(image, darkness_coeff=-1):
-    if darkness_coeff == -1:
-        darkness_coeff_t = 1 - random.uniform(0, 0.8)
+# make image darker
+def darken(image, darkness_coef=-1):
+    if darkness_coef == -1:
+        darkness_coef_t = 1 - random.uniform(0, 0.8)
     else:
-        darkness_coeff_t = 1 - darkness_coeff
-    # Change the light in the image according to the darkness coeff
-    image_RGB = change_light(image, darkness_coeff_t)
+        darkness_coef_t = 1 - darkness_coef
+    # Change the light in the image according to the darkness coef
+    image_RGB = change_light(image, darkness_coef_t)
     return image_RGB
 
 
