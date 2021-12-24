@@ -205,7 +205,7 @@ def add_shadow(image, no_of_shadows=3):
 
 
 def buildCar_type1(license_img, num):
-    car = cv2.imread('img/cartype345/car4.jpg')
+    car = cv2.imread('./img/cartype345/car4.jpg')
     plate = cv2.imread(license_img)
 
     # Getting the coordinates of corners from the first image
@@ -243,13 +243,13 @@ def buildCar_type1(license_img, num):
     final = cv2.bitwise_or(im1Reg, masked_image)
     # final = sun_flare(final, flare_center=-1, no_of_flare_circles=8, src_radius=400, src_color=(255, 255, 255))
     final = darken(final)
-    cv2.imwrite('./img/test_car/addplate' + str(num) + '.png', final)
+    cv2.imwrite('./generated_car/test_car/addplate' + str(num) + '.png', final)
 
 
 def buildCar_type2(license_img, num):
     count = 0
 
-    car = cv2.imread('img/cartype167/car3.jpg')
+    car = cv2.imread('./img/cartype167/car3.jpg')
     plate = cv2.imread(license_img)
 
     # Getting the coordinates of corners from the first image
@@ -288,24 +288,25 @@ def buildCar_type2(license_img, num):
     # Using Bitwise or to merge the two images
     final = cv2.bitwise_or(im1Reg, masked_image)
     # final = sun_flare(final, flare_center=-1, no_of_flare_circles=8, src_radius=400, src_color=(255, 255, 255))
-    final = darken(final)
-    cv2.imwrite('./img/test_car/addplate' + str(num) + '.png', final)
+    # final = darken(final)
+    cv2.imwrite('./generated_car/test_car/addplate' + str(num) + '.png', final)
 
 
-# buildCar_type1('license1.jpg', "00")
-# buildCar_type2('license.jpg', "0")
+# saved in test_car
+buildCar_type1('license1.jpg', "00")
+buildCar_type2('license.jpg', "0")
 
-num = 0
-for file in os.listdir("./img/test_plate/"):
-    num += 1
-    file_name = "./img/test_plate/" + file
-    plate = cv2.imread(file_name)
-    h = plate.shape[0]
-    # type 1 is the old kind of plates / 2 is the recent plates
-    if h == 170:
-        buildCar_type1(file_name, num)
-    elif h == 110:
-        buildCar_type2(file_name, num)
-    else:
-        # 355x155
-        continue
+# num = 0
+# for file in os.listdir("../data_generate_license/generated_plate/test_plate/"):
+#     num += 1
+#     file_name = "../data_generate_license/generated_plate/test_plate/" + file
+#     plate = cv2.imread(file_name)
+#     h = plate.shape[0]
+#     # type 1 is the old kind of plates / 2 is the recent plates
+#     if h == 170:
+#         buildCar_type1(file_name, num)
+#     elif h == 110:
+#         buildCar_type2(file_name, num)
+#     else:
+#         # 355x155
+#         continue

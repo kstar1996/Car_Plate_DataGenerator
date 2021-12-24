@@ -24,7 +24,7 @@ def draw_circle(event, x, y, flags, param):
 
 
 def main(car, plate_pic, pos, num):
-    # car = cv2.imread('img/cartype167/car1.jpg')
+    # car = cv2.imread('img/cartype167/car.jpg')
     # car = cv2.imread(car_pic)
     plate = cv2.imread(plate_pic)
 
@@ -77,7 +77,7 @@ def main(car, plate_pic, pos, num):
 
     # Using Bitwise or to merge the two images
     final = cv2.bitwise_or(im1Reg, masked_image2)
-    cv2.imwrite('./img/test_car/addplate' + str(num) + '.png', final)
+    cv2.imwrite('generated_car/test_car/addplate' + str(num) + '.png', final)
 
 
 # Get 4 points of license plate

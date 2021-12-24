@@ -47,10 +47,10 @@ def detection(pic):
     # cv2.destroyAllWindows()
 
     n = str(random.randint(0, 10000))
-    cv2.imwrite("new" + n + ".jpg", new_img)
-    cv2.imwrite("crop_black" + n + ".jpg", cropped_black)
+    cv2.imwrite("background_black" + n + ".jpg", new_img)
+    cv2.imwrite("cropped" + n + ".jpg", cropped_black)
 
 
-detection("../car_photo.jpg")
-detection("../car_photo1.jpg")
-detection("../car_photo2.jpg")
+detection("./img/car1.jpg")
+detection("./img/car2.jpg")
+detection("./img/car3.jpg")

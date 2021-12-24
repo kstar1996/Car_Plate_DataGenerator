@@ -6,8 +6,8 @@ import numpy as np
 
 
 def my_function(img, bl, tl, tr, br):
-    # car = imread('car1.jpg')
     car = imread(img)
+    # If you want to find the coordinates, uncomment this
     # plt.imshow(car)
 
     # bottom_left = [107, 251]
@@ -19,27 +19,27 @@ def my_function(img, bl, tl, tr, br):
     top_right = tr
     bottom_right = br
 
-    #source coordinates
+    # source coordinates
     src = np.array([bottom_left, top_left, top_right, bottom_right]).reshape((4, 2))
-    #destination coordinates
-    dst = np.array([0, 30,
+    # destination coordinates
+    dst = np.array([0, 80,
                     0, 0,
-                    70, 0,
-                    70, 30,]).reshape((4, 2))
+                    210, 0,
+                    210, 80, ]).reshape((4, 2))
 
-    #using skimage’s transform module where ‘projective’ is our desired parameter
+    # using skimage’s transform module where ‘projective’ is our desired parameter
     tform = transform.estimate_transform('projective', src, dst)
     tf_img = transform.warp(car, tform.inverse)
-    cropped = tf_img[0:30,0:70]
+    cropped = tf_img[0:80, 0:210]
 
-    #plotting the transformed image
+    # plotting the transformed image
     # fig, ax = plt.subplots()
     # ax.imshow(tf_img)
     # ax.imshow(cropped)
     plt.show()
 
-    #save image
-    io.imsave("./"+"test_plate"+img, cropped)
+    # save image
+    io.imsave("./" + "test_plate" + img, cropped)
 
     # _ = ax.set_title('projective transformation')
     # plt.figure()
@@ -49,8 +49,4 @@ def my_function(img, bl, tl, tr, br):
 
 
 # bottom_left, top_left, top_right, bottom_right
-my_function('car1.jpg', [107, 251], [109, 236], [174, 243], [173, 260])
-my_function('car2.jpg', [292, 553], [292, 518], [440, 523], [439, 559])
-my_function('car3.jpg', [335, 384], [330, 329], [742, 328], [727, 381])
-
-
+my_function('car.jpg', [292, 553], [292, 518], [440, 523], [439, 559])

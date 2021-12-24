@@ -18,13 +18,13 @@ class ImageGenerator:
     def __init__(self, save_path):
         self.save_path = save_path
         # Plate
-        self.plate = cv2.imread("plate.jpg")
-        self.plate2 = cv2.imread("plate_y.jpg")
-        self.plate3 = cv2.imread("plate_g.jpg")
-        self.plate4 = cv2.imread("plate_e.jpg")
+        self.plate = cv2.imread("img/plate.jpg")
+        self.plate2 = cv2.imread("img/plate_y.jpg")
+        self.plate3 = cv2.imread("img/plate_g.jpg")
+        self.plate4 = cv2.imread("img/plate_e.jpg")
 
         # loading Number
-        file_path = "./num/"
+        file_path = "img/num/"
         file_list = os.listdir(file_path)
         self.Number = list()
         self.number_list = list()
@@ -35,7 +35,7 @@ class ImageGenerator:
             self.number_list.append(file[0:-4])
 
         # loading Char
-        file_path = "./char1/"
+        file_path = "img/char1/"
         file_list = os.listdir(file_path)
         self.char_list = list()
         self.Char1 = list()
@@ -46,7 +46,7 @@ class ImageGenerator:
             self.char_list.append(file[0:-4])
 
         # loading Number ====================  blue-one-line  ==========================
-        file_path = "./num_e/"
+        file_path = "img/num_e/"
         file_list = os.listdir(file_path)
         self.Number_e = list()
         self.number_list_e = list()
@@ -57,7 +57,7 @@ class ImageGenerator:
             self.number_list_e.append(file[0:-4])
 
         # loading Char
-        file_path = "./char1_e/"
+        file_path = "img/char1_e/"
         file_list = os.listdir(file_path)
         self.char_list_e = list()
         self.Char1_e = list()
@@ -69,7 +69,7 @@ class ImageGenerator:
         # =========================================================================
 
         # loading Number ====================  yellow-two-line  ==========================
-        file_path = "./num_y/"
+        file_path = "img/num_y/"
         file_list = os.listdir(file_path)
         self.Number_y = list()
         self.number_list_y = list()
@@ -80,7 +80,7 @@ class ImageGenerator:
             self.number_list_y.append(file[0:-4])
 
         # loading Char
-        file_path = "./char1_y/"
+        file_path = "img/char1_y/"
         file_list = os.listdir(file_path)
         self.char_list_y = list()
         self.Char1_y = list()
@@ -91,7 +91,7 @@ class ImageGenerator:
             self.char_list_y.append(file[0:-4])
 
         # loading Resion
-        file_path = "./region_y/"
+        file_path = "img/region_y/"
         file_list = os.listdir(file_path)
         self.Resion_y = list()
         self.resion_list_y = list()
@@ -103,7 +103,7 @@ class ImageGenerator:
         #=========================================================================
 
         # loading Number ====================  green-two-line  ==========================
-        file_path = "./num_g/"
+        file_path = "img/num_g/"
         file_list = os.listdir(file_path)
         self.Number_g = list()
         self.number_list_g = list()
@@ -114,7 +114,7 @@ class ImageGenerator:
             self.number_list_g.append(file[0:-4])
 
         # loading Char
-        file_path = "./char1_g/"
+        file_path = "img/char1_g/"
         file_list = os.listdir(file_path)
         self.char_list_g = list()
         self.Char1_g = list()
@@ -125,7 +125,7 @@ class ImageGenerator:
             self.char_list_g.append(file[0:-4])
 
         # loading Resion
-        file_path = "./region_g/"
+        file_path = "img/region_g/"
         file_list = os.listdir(file_path)
         self.Resion_g = list()
         self.resion_list_g = list()
@@ -574,7 +574,7 @@ class ImageGenerator:
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--img_dir", help="save image directory",
-                    type=str, default="./img/test_plate/")
+                    type=str, default="./generated_plate/test_plate/")
 parser.add_argument("-n", "--num", help="number of image",
                     type=int, default=50)
 parser.add_argument("-s", "--save", help="save or imshow",
@@ -583,7 +583,7 @@ args = parser.parse_args()
 
 img_dir = args.img_dir
 A = ImageGenerator(img_dir)
-img_dir2 = "./img/train_plate/"
+img_dir2 = "./generated_plate/train_plate/"
 B = ImageGenerator(img_dir2)
 
 num_img = args.num
