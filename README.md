@@ -1,4 +1,6 @@
-# License-plate-Generator
+# Generate-Data
+
+## License plate Generator
 
 Generate Synthetic Korea License Plates.
 
@@ -8,7 +10,7 @@ Generate Synthetic Korea License Plates.
 
 - You can create synthetic license plate pictures by selecting the plate of the desired type.
 
-## Labeling
+### Labeling
 
 - The name of the photo shows the letters and numbers on the license plate.
 
@@ -26,8 +28,7 @@ Type 5 : Z19tn7921
 Type 6 : 112ah0833   
 Type 7 : X50fk9747
 
-## File Description
-
+### File Description
 
 |       File         |Description                                       |
 |--------------------|--------------------------------------------------|
@@ -37,7 +38,7 @@ Type 7 : X50fk9747
 |generator_noise.py |   generate images with noise such as rainfall, sunlight, shadows.     |
 
 
-# Car-with-license-plate-Generator
+## Car with license plate Generator
 
 - Use generated license plates to create new car images.
 
@@ -48,21 +49,42 @@ Type 7 : X50fk9747
 - You need your own car images for this part.
 
 
-## File Description
+### File Description
 
 
 |       File         |Description                                       |
 |--------------------|--------------------------------------------------|
-|buildcar_click.py           |  click on the 4 corners of the license plate location to generate cars with new license plates.     |
+|buildcar_click_one.py           |  click on the 4 corners of the license plate location to generate cars with new license plates.     |
+|buildcar_click_multiple.py        |  same as above but for creating multiple images.     |
 |buildcar_nonclick.py       |  no need to click (need the location info beforehand).   |
 
 
-# License-plate-alignment
+# Detection-Alignment-and-OCR
+
+## License plate detection
+
+### File Description
+
+|       File         |Description                                       |
+|--------------------|--------------------------------------------------|
+|plate_detection.py          |  detect license plate and crop.     |  
+
+## License plate alignment
 
 - Align license plates using projective transform
 
-## File Description
+### File Description
 
 |       File         |Description                                       |
 |--------------------|--------------------------------------------------|
 |projective_transform.py           |  align license plates (need to know the 4 corner coordinates).     |
+
+## OCR
+
+- Reference: https://github.com/JaidedAI/EasyOCR
+
+### File Description
+
+|       File         |Description                                       |
+|--------------------|--------------------------------------------------|
+|recognize.py           |  use OCR to recognize Korean and numbers on license plates.     |
