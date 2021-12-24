@@ -289,7 +289,7 @@ def buildCar_type2(license_img, num):
     final = cv2.bitwise_or(im1Reg, masked_image)
     # final = sun_flare(final, flare_center=-1, no_of_flare_circles=8, src_radius=400, src_color=(255, 255, 255))
     # final = darken(final)
-    cv2.imwrite('./generated_car/test_car/addplate' + str(num) + '.png', final)
+    cv2.imwrite('./generated_car/test_car/addplate' + str(num) + '.jpg', final)
 
 
 # saved in test_car

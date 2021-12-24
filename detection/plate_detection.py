@@ -18,7 +18,8 @@ def detection(pic):
 
     cnt = imutils.grab_contours(contours)
     cnt = sorted(cnt, key=cv2.contourArea, reverse=True)[:10]
-    print(cnt)
+    # print(cnt)
+    # screen has the coordinates of 4 points
     screen = None
 
     for c in cnt:
@@ -27,6 +28,9 @@ def detection(pic):
         if len(approx) == 4:
             screen = approx
             break
+
+    # screen order top left, bottom left, bottom right, top right
+    plate_coor = (screen.tolist())
 
     mask = np.zeros(plate_gray.shape, np.uint8)
     new_img = cv2.drawContours(mask, [screen], 0, (255, 255, 255), -1)
@@ -50,7 +54,10 @@ def detection(pic):
     cv2.imwrite("background_black" + n + ".jpg", new_img)
     cv2.imwrite("cropped" + n + ".jpg", cropped_black)
 
+    # return coordinates of 4 corners
+    return plate_coor
+
 
 detection("./img/car1.jpg")
-detection("./img/car2.jpg")
-detection("./img/car3.jpg")
+# detection("./img/car2.jpg")
+# detection("./img/car3.jpg")
