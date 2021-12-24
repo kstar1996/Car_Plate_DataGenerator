@@ -1,11 +1,9 @@
 import numpy as np
 import imutils
 import cv2
-import random
 from skimage.io import imread, imshow
 from skimage import transform
 from skimage import io
-import matplotlib.pyplot as plt
 import numpy as np
 import easyocr
 
