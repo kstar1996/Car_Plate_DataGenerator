@@ -59,5 +59,5 @@ def detection(pic):
 
 
 detection("./img/car1.jpg")
-# detection("./img/car2.jpg")
+# detection("./img/car2.png")
 # detection("./img/car3.jpg")

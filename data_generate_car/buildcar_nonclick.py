@@ -293,20 +293,20 @@ def buildCar_type2(license_img, num):
 
 
 # saved in test_car
-buildCar_type1('license1.jpg', "00")
-buildCar_type2('license.jpg', "0")
+# buildCar_type1('license1.jpg', "00")
+# buildCar_type2('license.jpg', "0")
 
-# num = 0
-# for file in os.listdir("../data_generate_license/generated_plate/test_plate/"):
-#     num += 1
-#     file_name = "../data_generate_license/generated_plate/test_plate/" + file
-#     plate = cv2.imread(file_name)
-#     h = plate.shape[0]
-#     # type 1 is the old kind of plates / 2 is the recent plates
-#     if h == 170:
-#         buildCar_type1(file_name, num)
-#     elif h == 110:
-#         buildCar_type2(file_name, num)
-#     else:
-#         # 355x155
-#         continue
+num = 0
+for file in os.listdir("../data_generate_license/generated_plate/test_plate/"):
+    num += 1
+    file_name = "../data_generate_license/generated_plate/test_plate/" + file
+    plate = cv2.imread(file_name)
+    h = plate.shape[0]
+    # type 1 is the old kind of plates / 2 is the recent plates
+    if h == 170:
+        buildCar_type1(file_name, num)
+    elif h == 110:
+        buildCar_type2(file_name, num)
+    else:
+        # 355x155
+        continue

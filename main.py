@@ -37,6 +37,7 @@ def detection(pic):
     plate_coor = [plate_coor[i:i + 2] for i in range(0, 8, 2)]
     plate_coor.sort(key=lambda x: x[0])
 
+    # for getting the correct order of coordinates
     if plate_coor[0][1] > plate_coor[1][1]:
         new = plate_coor[0]
         plate_coor[0] = plate_coor[1]
@@ -46,7 +47,6 @@ def detection(pic):
         new = plate_coor[2]
         plate_coor[2] = plate_coor[3]
         plate_coor[3] = new
-
 
     return plate_coor
 
@@ -62,12 +62,13 @@ def alignment(img, arr):
     # source coordinates
     src = np.array([bottom_left, top_left, top_right, bottom_right]).reshape((4, 2))
     # destination coordinates
-    dst = np.array([0, 80, 0, 0, 210, 0, 210, 80, ]).reshape((4, 2))
+    # this ratio produces best results -> electric: 290, 80
+    dst = np.array([0, 80, 0, 0, 290, 0, 290, 80, ]).reshape((4, 2))
 
     # using skimage’s transform module where ‘projective’ is our desired parameter
     tform = transform.estimate_transform('projective', src, dst)
     tf_img = transform.warp(car, tform.inverse)
-    cropped = tf_img[0:80, 0:210]
+    cropped = tf_img[0:80, 0:290]
 
     # save image
     file_name = "./" + "test_plate" + img
@@ -85,7 +86,7 @@ def recognizer(img):
         download_enabled=False
     )
     # Make sure that is only recognizes certain characters
-    result = reader.readtext(img, detail=0, allowlist='0123456789가나다라마거너더러머버서어저고노도로모보소오조구누두루무부수우주아바사자하허호배서울경기인천강원충남대전충북부산울대구경북남전광제')
+    result = reader.readtext(img, detail=0, allowlist='0123456789가나다라마거너더러머버서어저고노도로모보소오조구누두루무부수우주아바사자차하허호배서울경기인천강원충남대전충북부산울대구경북남전광제')
     for i in result:
         string += i
     return string
@@ -93,7 +94,9 @@ def recognizer(img):
 
 # bottom_left, top_left, top_right, bottom_right
 print(recognizer(alignment("car.jpg", detection("car.jpg"))))
-print(recognizer(alignment("car1.jpg", detection("car1.jpg"))))
+# print(recognizer(alignment("car1.jpg", detection("car1.jpg"))))
+# print(recognizer(alignment("car2.png", detection("car2.png"))))
+
 # print(detection("car1.jpg"))
 
 
