@@ -32,6 +32,10 @@ def detection(pic):
             screen = approx
             break
 
+    if screen is None:
+        print("Fail to find license")
+        return "fail"
+
     # screen order top left, bottom left, bottom right, top right
     plate_coor = (screen.flatten().tolist())
     plate_coor = [plate_coor[i:i + 2] for i in range(0, 8, 2)]
@@ -59,6 +63,9 @@ def alignment(img, arr):
     top_right = arr[3]
     bottom_right = arr[2]
 
+    if arr is "fail":
+        return "fail"
+
     # source coordinates
     src = np.array([bottom_left, top_left, top_right, bottom_right]).reshape((4, 2))
     # destination coordinates
@@ -77,6 +84,8 @@ def alignment(img, arr):
 
 
 def recognizer(img):
+    if img is "fail":
+        return 
     string = ''
     reader = easyocr.Reader(
         lang_list=['ko'],
@@ -93,7 +102,7 @@ def recognizer(img):
 
 
 # bottom_left, top_left, top_right, bottom_right
-print(recognizer(alignment("car.jpg", detection("car.jpg"))))
+print(recognizer(alignment("car4.png", detection("car4.png"))))
 # print(recognizer(alignment("car1.jpg", detection("car1.jpg"))))
 # print(recognizer(alignment("car2.png", detection("car2.png"))))
 
