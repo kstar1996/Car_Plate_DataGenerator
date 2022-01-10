@@ -23,8 +23,8 @@ def draw_circle(event, x, y, flags, param):
 
 
 # car = cv2.imread('img/cartype167/car.jpg')
-car = cv2.imread('img/cartype167/car3.jpg')
-plate = cv2.imread('license1.jpg')
+car = cv2.imread('img/cartype167/Cars46.png')
+plate = cv2.imread('license.jpg')
 
 # Defing a window named 'image'
 cv2.namedWindow('image')
@@ -75,4 +75,4 @@ masked_image2 = cv2.bitwise_and(car, mask2)
 
 # Using Bitwise or to merge the two images
 final = cv2.bitwise_or(im1Reg, masked_image2)
-cv2.imwrite('generated_car/test_car/addplate.png', final)
+cv2.imwrite('../car4.png', final)

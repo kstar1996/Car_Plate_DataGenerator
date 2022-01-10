@@ -85,11 +85,11 @@ def alignment(img, arr):
 
 def recognizer(img):
     if img is "fail":
-        return 
+        return
     string = ''
     reader = easyocr.Reader(
         lang_list=['ko'],
-        gpu=False,
+        # gpu=False,
         detector='./craft_mlt_25k.pth',
         recognizer='./korean_g2.pth',
         download_enabled=False
@@ -102,8 +102,8 @@ def recognizer(img):
 
 
 # bottom_left, top_left, top_right, bottom_right
-print(recognizer(alignment("car4.png", detection("car4.png"))))
-# print(recognizer(alignment("car1.jpg", detection("car1.jpg"))))
+# print(recognizer(alignment("car4.png", detection("car4.png"))))
+print(recognizer(alignment("car1.jpg", detection("car1.jpg"))))
 # print(recognizer(alignment("car2.png", detection("car2.png"))))
 
 # print(detection("car1.jpg"))
